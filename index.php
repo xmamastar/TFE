@@ -14,6 +14,9 @@
 		<link rel="stylesheet" href="style.css" />
 
 	</head>
+	<?php
+        session_start();
+        ?>
 	<body>
 		<header>
 
@@ -58,8 +61,6 @@
 		</div>
 
 		<footer>
-			<?php include("footer.php"); ?>
-
 		</footer>
 
 

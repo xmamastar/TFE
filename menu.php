@@ -1,5 +1,8 @@
 <!doctype html>
 <html>
+    <?php
+        session_start();
+        ?>
 	<head>
 
 		<meta charset="UTF-8">
@@ -20,11 +23,12 @@
 						<li class="nav-item"><a class="nav-link" href="">Shop</a></li>
 
 						<?php
-							if(isset($_SESSION['pseudo']))
+							if(isset($_SESSION['nom']))
 							{
 							?>
 							<li><a href="profil.php">Profil</a></li>
 							<li><a href="deconnexion.php">Déconnexion</a></li>
+
 							<?php
 							}
 							else{
@@ -33,13 +37,10 @@
 							<li><a href="connexion.php">Connexion</a></li>
 							<?php
 							}
-							if(isset($_SESSION['statut']))
-							{
+
+
 							?>
-							<li><a href="Admin.php">Admin</a></li>
-							<?php
-							}
-							?>
+
 
 					</ul>
 				</div>
