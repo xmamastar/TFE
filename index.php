@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 
 <!doctype html>
 <html>
@@ -14,9 +13,7 @@
 		<link rel="stylesheet" href="style.css" />
 
 	</head>
-	<?php
-        session_start();
-        ?>
+
 	<body>
 		<header>
 

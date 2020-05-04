@@ -7,10 +7,6 @@
 	<body>
 
     <?php
-        session_start();
-        ?>
-
-    <?php
 
         include 'menu.php';
         require('connexionbdd.php');
