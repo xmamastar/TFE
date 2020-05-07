@@ -1,5 +1,15 @@
 html{
 
+  width:100%;
+
+
+
+}
+.container{
+
+
+  margin:auto
+
 }
 body{
   background-image: url("images/fond.jpg");
@@ -9,23 +19,32 @@ body{
   margin:0;
   padding:0;
   height:100%;
+
 }
 header{
-  position: absolute;
+  position: relative;
     top: 0;
     left: 0;
-    padding: 0 100px;
     background: #81A2DB;
     width: 100%;
     box-sizing: border-box;
     height: 70px;
     z-index: 10;
+
+}
+div.row{
+  background-color: rgba(129, 162, 219,0.6);
+  border-radius:10px 0;
+
 }
 
+.titre{
+
+  color: black;
+}
 #logo{
-  height:50px;
   float:left;
-  line-height: 50px;
+	height: auto;
 }
 #content{
   background-color : #eee;
@@ -42,6 +61,7 @@ header{
 nav{
   float: right;
 }
+
 .icon {
   color: #eee;
     float: right;
@@ -99,15 +119,26 @@ a{
     padding: 0 20px;
     color: #000;
     text-decoration: none;
-    display: block;
+
 
 }
-a:hover{
-    text-decoration: none;
+.nav>li>a:hover{
+    text-decoration: underline;
     outline: none;
+    background-color:#81A2DB;
     color : #fff;
 }
 
+
+.nav>li>a{
+  font-family: "Times",Helvetica,Arial,sans-serif;
+  background: #81A2DB;
+  height: 50px;
+  line-height:50px;
+  padding: 0 20px;
+  text-align: center;
+  margin: 0;
+}
 
 form{
 opacity: none;
@@ -268,4 +299,9 @@ footer h3{
     text-decoration: underline;
 }
 
+div .column{
 
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}

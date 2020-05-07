@@ -14,12 +14,12 @@
 	<header>
 		<div id="menu-nav" class="topnav">
 			<div id="logo">
-				<img src="images/logo.png">
+				<img src="images/logo.png" height="75px" width="100px" >
 			</div>
 		<nav>
 					<ul class="nav">
 						<li class="nav-item"><a class="nav-link" href="index.php">Accueil</a></li>
-						<li class="nav-item"><a class="nav-link" href="">Réservation</a></li>
+						<li class="nav-item"><a class="nav-link" href="calendrier.php">Réservation</a></li>
 						<li class="nav-item"><a class="nav-link" href="">Shop</a></li>
 
 						<?php

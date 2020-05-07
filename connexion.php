@@ -2,7 +2,7 @@
     <head>
        <meta charset="utf-8">
         <title>Tc Plainchamp</title>
-        <link rel="stylesheet" href="style2.css"  />
+        <link rel="stylesheet" href="style.css"  />
     </head>
 
     <body>
