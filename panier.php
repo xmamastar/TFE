@@ -1,3 +1,4 @@
+<html>
 <?php
 include 'menu.php';
 
@@ -39,7 +40,7 @@ include 'menu.php';
 
 
                 echo "<td> objet : ".$id."</ td>";
-                echo "<td><input type=\"number\" size=\"1\" name=\"modific\" value=\"".$qte."\"/></td>";
+                echo "<td><input type=\"number\" size=\"1\" id=\"modific\" name=\"modific\" value=\"".$qte."\"/></td>";
 
                 ?>
                 <form action="supprpanier.php" method="post">
@@ -59,3 +60,12 @@ include 'menu.php';
                <?php
         }
 ?>
+
+<script>
+    modific.oninput= function(){
+
+        result.innerHTML = modific.value;
+
+    };
+</script>
+</html>
