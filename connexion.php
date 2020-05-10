@@ -41,6 +41,9 @@ if (isset($_POST["mail"])||isset($_POST["mdp"]))
                 $_SESSION["statut"]=1;
                 //$_SESSION['affiliation']=$resultat['N°Affiliation'];
                 $_SESSION["jour"]=$today;
+                $_SESSION['panier']=array();
+
+
 
 
                 header('location: index.php');

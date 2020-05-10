@@ -20,7 +20,7 @@
 					<ul class="nav">
 						<li class="nav-item"><a class="nav-link" href="index.php">Accueil</a></li>
 						<li class="nav-item"><a class="nav-link" href="">Réservation</a></li>
-						<li class="nav-item"><a class="nav-link" href="">Shop</a></li>
+						<li class="nav-item"><a class="nav-link" href="shop.php?cat=all">Shop</a></li>
 
 						<?php
 							if(isset($_SESSION['nom']))
@@ -28,7 +28,6 @@
 							?>
 							<li><a href="profil.php">Profil</a></li>
 							<li><a href="deconnexion.php">Déconnexion</a></li>
-
 							<?php
 							}
 							else{
@@ -37,8 +36,11 @@
 							<li><a href="connexion.php">Connexion</a></li>
 							<?php
 							}
-
-
+							if(isset($_SESSION['admin']) && $_SESSION['admin']==1 ){
+                            ?>
+                            <li><a href="admin.php">Admin</a></li>
+                            <?php
+                            }
 							?>
 
 
