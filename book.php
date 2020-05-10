@@ -1,7 +1,17 @@
 <?php
-
+include "menu.php"; 
 $mysqli= new mysqli('localhost','root','bdTennisTFE','bookingcalendar');
 $nbTerrains=7;
+$terrain=0;
+echo $_SESSION['id'];
+if (isset($_POST["terrain"])){
+
+	$terrain= $_POST["terrain"];
+	$terrain=intVal($terrain);
+	//echo $terrain;
+
+}
+
 if(isset($_GET['date'])){
 
 	$date=$_GET['date'];
@@ -12,7 +22,10 @@ if(isset($_GET['date'])){
 			$result=$stmt->get_result();
 			if($result->num_rows>0){
 					while($row =$result->fetch_assoc()){
-							$bookings[]=$row['timeslot'];
+							$test=implode($row);
+							//echo $test;
+							$liste=array($row['terrain'],$row['timeslot']);
+							$bookings[]=$liste;
 					}
 					$stmt->close();
 			}
@@ -23,23 +36,50 @@ if(isset($_POST['submit'])){
 	$email=$_POST['email'];
 	$timeslot=$_POST['timeslot'];
 
-	echo $_POST['timeslotFin'];
-	echo $_POST['timeslotstart'];
-	$stmt=$mysqli->prepare("SELECT * FROM bookings WHERE date=? AND timeslot=?");
-	$stmt->bind_param('ss',$date,$timeslot);
+	//echo $_POST['timeslotFin'];
+	//echo $_POST['timeslotstart'];
+	$stmt=$mysqli->prepare("SELECT * FROM bookings WHERE date=? AND timeslot=? AND terrain=?");
+	$stmt->bind_param('sss',$date,$timeslot,$terrain);
 	if ($stmt->execute()){
 			$result=$stmt->get_result();
 			if($result->num_rows>0){
 					$msg="<div class='alert alert-danger'>Already Reserved</div>";
 			}
 			else{
-				$stmt=$mysqli->prepare("INSERT INTO bookings(name,timeslot,email,date) VALUES (?,?,?,?)");
-				$stmt->bind_param('ssss',$name,$timeslot,$email,$date);
-				$stmt->execute();
-				$msg="<div class='alert alert-success'>Booking Successfull</div>";
-				$bookings[]=$timeslot;
-				$stmt->close();
-				$mysqli->close();
+				if(isset($_POST['timeslotFin'])){
+					$ts=$timeslot;
+					for($i=0;$i<=$_POST['timeslotFin'];$i++){
+						$timeslot=$ts;
+						$time_s=explode("-",$timeslot);
+						$start= new DateTime($time_s[0]);
+						$end=new DateTime($time_s[1]);
+						if ($i==0){
+							$duration=0;
+						}
+						else{
+
+							$duration=30;
+						}
+						$interval =new DateInterval("PT".$duration."M");
+						$start->add($interval);
+						$end->add($interval);
+						$timeslot=$start->format("H:i")."-".$end->format("H:i");
+						echo $timeslot;
+						$stmt=$mysqli->prepare("INSERT INTO bookings(name,timeslot,email,date,terrain) VALUES (?,?,?,?,?)");
+						$stmt->bind_param('sssss',$name,$timeslot,$email,$date,$terrain);
+						$stmt->execute();
+						$msg="<div class='alert alert-success'>Booking Successfull</div>";
+						$liste=array($terrain,$timeslot);
+						$bookings[]=$liste;
+
+						$ts=$timeslot;
+
+
+					}
+					$stmt->close();
+					$mysqli->close();
+				}
+
 
 			}
 	}
@@ -85,7 +125,7 @@ function timeslots($duration,$cleanup,$start,$end){
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css" />
 </head>
-<?php include "menu.php"; ?>
+
 <body>
 
 	<div class="container">
@@ -119,8 +159,16 @@ function timeslots($duration,$cleanup,$start,$end){
 						<?php
 					}
 					else{
+						$liste_ts=array();
+						$is_in_liste=false;
+						for ($i=0;$i<count($bookings);$i++){
 
-						if(in_array($ts,$bookings)){
+							if($bookings[$i][1]==$ts && $j==$bookings[$i][0]){
+
+								$is_in_liste=true;
+							}
+						}
+						if($is_in_liste){
 						//affiche le bouton en rouge si il est réservé $ts=différent timeslot
 					?>
 
@@ -162,6 +210,7 @@ function timeslots($duration,$cleanup,$start,$end){
 								<label>De:</label>
 								<input required type="text" readonly name="timeslotstart" id="timeslotstart" class="form-control">
 								<input required type="hidden" readonly name="timeslot" id="timeslot" class="form-control">
+								<input required type="hidden" readonly name="terrain" id="terrain" class="form-control">
 								<label>Jusque:</label>
 								<select required name="timeslotFin" id="timeslotfin" class="form-control">
 									<option id="ts1"></option>
@@ -235,10 +284,14 @@ function timeslots($duration,$cleanup,$start,$end){
 			h=h.toString()+':'+min.toString();
 			$("#slot").html(terrain);
 			$("#timeslot").val(timeslot);
+			$("#terrain").val(terrain);
 			$("#timeslotstart").val(h);
 			$("#ts1").html(ts1);
 			$("#ts2").html(ts2);
 			$("#ts3").html(ts3);
+			$("#ts1").val(1);
+			$("#ts2").val(2);
+			$("#ts3").val(3);
 			$("#myModal").modal("show");
 
 		})
