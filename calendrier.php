@@ -1,7 +1,7 @@
 <?php
 function build_calendar($month,$year){
 
-    $mysqli= new mysqli('localhost','root','bdTennisTFE','bookingcalendar');
+    $mysqli= new mysqli('localhost','root','','bookingcalendar');
     /*$stmt=$mysqli->prepare("SELECT * FROM bookings WHERE MONTH(date)=? AND YEAR(date)=?");
     $stmt->bind_param('ss',$month,$year);
     $bookings=array();

@@ -20,7 +20,7 @@
 					<ul class="nav">
 						<li class="nav-item"><a class="nav-link" href="index.php">Accueil</a></li>
 						<li class="nav-item"><a class="nav-link" href="calendrier.php">Réservation</a></li>
-						<li class="nav-item"><a class="nav-link" href="shop.php">Shop</a></li>
+						<li class="nav-item"><a class="nav-link" href="shop.php?cat=all">Shop</a></li>
 
 						<?php
 							if(isset($_SESSION['nom']))
