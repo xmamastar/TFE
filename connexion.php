@@ -2,7 +2,7 @@
     <head>
        <meta charset="utf-8">
         <title>Tc Plainchamp</title>
-        <link rel="stylesheet" href="style.css"  />
+        <link rel="stylesheet" href="style2.css"  />
     </head>
 
     <body>
@@ -41,6 +41,9 @@ if (isset($_POST["mail"])||isset($_POST["mdp"]))
                 $_SESSION["statut"]=1;
                 //$_SESSION['affiliation']=$resultat['N°Affiliation'];
                 $_SESSION["jour"]=$today;
+                $_SESSION['panier']=array();
+
+
 
 
                 header('location: index.php');
