@@ -8,6 +8,7 @@
 		<meta charset="UTF-8">
 
 		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" crossorigin="anonymous">
 		<script src="js/jquery-3.4.1.min.js"></script>
 	</head>
 	<body>
@@ -27,6 +28,7 @@
 							{
 							?>
 							<li><a href="profil.php">Profil</a></li>
+							<li><a href="tournoi.php">Tournoi</a></li>
 							<li><a href="deconnexion.php">Déconnexion</a></li>
 
 							<?php
@@ -36,6 +38,7 @@
 							<li><a href="inscription.php">Inscription</a></li>
 							<li><a href="connexion.php">Connexion</a></li>
 							<?php
+							}
 							if(isset($_SESSION['admin']) && $_SESSION['admin']==1 ){
 
 								?>
@@ -43,7 +46,7 @@
                             <?php
                             	}
 							
-							}
+
 
 
 							?>

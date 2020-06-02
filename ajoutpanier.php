@@ -63,7 +63,7 @@ else{
             array_push($_SESSION['panier'],$item);
           }
 
-header("location: shop.php?cat=all");
+header('Location: ' . $_SERVER['HTTP_REFERER'].'#'.$id_item);
 
 
 ?>

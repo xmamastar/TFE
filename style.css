@@ -305,3 +305,10 @@ div .column{
   display: flex;
   justify-content: space-around;
 }
+
+.col{
+    width: 20%;
+    margin:0;
+    display: inline-block;
+    text-align: center;
+}

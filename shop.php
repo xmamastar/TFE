@@ -2,7 +2,7 @@
     <head>
        <meta charset="utf-8">
         <title>Tc Plainchamp</title>
-        <link rel="stylesheet" href="style2.css"  />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" crossorigin="anonymous">
     </head>
 
     <body>
@@ -14,7 +14,7 @@
 
 
         ?>
-        <div id="content">
+        <div id="content" class="row row-cols-4">
         <?php if(isset($_SESSION['admin']) && $_SESSION['admin']==1 ){ ?>
                     <a href="ajoutitem.php"><button >Ajouter un nouvel objet à la boutique</button></a>
             <?php   }?>
@@ -38,7 +38,7 @@
 
                     if($_SESSION['cat']=="all"){
 
-                        ?><div class="item" id=<?php echo $donnees['id_item'] ?>>
+                        ?><div class="col" id=<?php echo $donnees['id_item'] ?>>
                         <?php if(isset($_SESSION['admin']) && $_SESSION['admin']==1 ){ ?>
                         <form action="suppritem.php" method="post">
                         <input type="hidden" name="id_item" value="<?php echo $donnees['id_item'] ?>">

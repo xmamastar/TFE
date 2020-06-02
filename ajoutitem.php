@@ -18,7 +18,7 @@
         {
             $nom_item=htmlspecialchars($_POST["nom_item"]);
             $cat_item=htmlspecialchars($_POST["cat_item"]);
-            $descri_item=sha1($_POST["descri_item"]);
+            $descri_item=htmlspecialchars($_POST["descri_item"]);
             $prix_item=$_POST["prix_item"];
             $target_dir = "images/items/";
             $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
