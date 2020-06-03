@@ -131,7 +131,6 @@ a{
 
 
 .nav>li>a{
-  font-family: "Times",Helvetica,Arial,sans-serif;
   background: #81A2DB;
   height: 50px;
   line-height:50px;
@@ -141,7 +140,7 @@ a{
 }
 
 form{
-opacity: none;
+//opacity: none;
 }
 
 footer{
@@ -204,7 +203,7 @@ footer h3{
         background-position: 10px 50%;
       }
     }
-}
+
 
 /*Select every element*/
 [id^="item"] {
