@@ -46,12 +46,28 @@ div.row{
   float:left;
 	height: auto;
 }
+#content-index{
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #eeeeee;
+}
+#content-index2{
+    background-color : #ffffff;
+
+    margin-bottom:100px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    border: 2px solid #000;
+}
 #content{
   background-color : #eee;
 
   width: 80%;
-  margin-top :200px;
-  margin-bottom:200px;
+  margin-top :100px;
+  margin-bottom:100px;
   margin-left: auto;
   margin-right: auto;
   padding: 2%;
@@ -154,98 +170,17 @@ footer{
 footer h3{
   padding-top:70px;
 }
-
-/*CAROUSEL*/
-.carousel-wrapper{
-  height:600px;
-  position:relative;
-  width:100%;
-  margin:0 auto;
-}
+/*Carousel*/
 .carousel-item{
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  padding:25px 50px;
-  opacity:0;
-  transition: all 0.5s ease-in-out;
-}
-.arrow{
-  border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 12px;
-}
-
-.arrow-prev{
-  left:-30px;
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%) rotate(135deg);
-}
-
-.arrow-next{
-    right:-30px;
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%) rotate(-45deg);
-  }
-
-.light{
-  color:white;
-}
-
-@media (max-width: 700px) {
-      .arrow, .light .arrow {
-        background-size: 10px;
-        background-position: 10px 50%;
-      }
-    }
-
-
-/*Select every element*/
-[id^="item"] {
     display: none;
-  }
-
-.item-1 {
-    z-index: 2;
-    opacity: 1;
-  background:url('images/slide1.jpg');
-  background-size:cover;
-  }
-.item-2{
-  background:url('images/slide2.jpg');
-   background-size:cover;
 }
-.item-3{
-  background:url('images/slide3.jpg');
-   background-size:cover;
+.carousel-item active{
+    display : block;
+}
+.container-fluid{
+    background: #eeeeee;
 }
 
-*:target ~ .item-1 {
-    opacity: 0;
-  }
-
-#item-1:target ~ .item-1 {
-    opacity: 1;
-  }
-
-#item-2:target ~ .item-2, #item-3:target ~ .item-3 {
-    z-index: 3;
-    opacity: 1;
-  }
-
-#container2{
-    width:40%;
-
-    margin-left: auto;
-    margin-right: auto;
-
-    margin-top:2%;
-}
 /* Bordered form */
 #container2 form {
 
