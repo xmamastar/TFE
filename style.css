@@ -300,65 +300,8 @@ footer h3{
 }
 
 div .column{
-  width: 95px;
+
   width: 100%;
   display: flex;
   justify-content: space-around;
-}
-div>.btn-success{
-
-  
-  text-align: center;
-}
-div>.btn-success>p{
-
-  width: 95px;
-  
-}
-div>.btn-danger{
-  width: 95px;
-  text-align: center;
-}
-div>#menuJour{
-
-  display:inline-flex;
-
-}
-@media screen and (min-width: 650px) {
-
-  div>.btn-success{
-
-  width: 95px;
-  text-align: center;
-}
-div>.btn-success>p{
-
-  width: 95px;
-  
-}
-div>.btn-danger{
-  width: 95px;
-  text-align: center;
-}
-
-}
-@media screen and (max-width: 650px) {
-
-  div>.btn-success{
-
-  width: 60px;
-  height: 45px;
-  text-align: center;
-}
-div>.btn-success>p{
-
-  width: 50px;
-  
-}
-div>.btn-danger{
-  height: 45px;
-  width: 60px;
-  text-align: center;
-}
-
 }

@@ -18,7 +18,14 @@
         <link rel="stylesheet" href="style2.css"  />
     </head>
     <body>
-        <div id="container2">
+        <div id="content">
+            <ul class="category">
+                <li><a href="admicom.php" >Adminiatration Commande</a></li>
+                <li><a href="admitournoi.php" >Adminiatration Tournoi</a></li>
+                <li><a href="annonce.php" >Ajouter une annonce au site</a></li>
+
+
+            </ul>
 
         </div>
     </body>

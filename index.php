@@ -18,7 +18,7 @@
 		<header>
 
 
-			<?php include("menu.php"); ?>
+			<?php include("menu.php"); require('connexionbdd.php'); ?>
 
 		</header>
 
@@ -53,9 +53,21 @@
 
 		</div>
 
-		<div id="content">
+        <?php
+		$reponse1 = $bdd->query('SELECT * FROM annonce');
+            $donnees1 = $reponse1->fetch();
+            if ($donnees1==null){
 
-		</div>
+                echo "<div id='content'><h2>Pas d'annonce pour le moment</h2></div>";
+
+            }
+            else{
+                $reponse = $bdd->query('SELECT * FROM annonce');
+                while ($donnees = $reponse->fetch()){
+
+                    echo "<div id='content'><h2>".$donnees['titre']."</h2><br>".$donnees['texte'].'<br><img src=images/items/'.$donnees['img_item'].'>'."</div>";
+                }
+            }?>
 
 		<footer>
 		</footer>
