@@ -25,7 +25,6 @@
                         $mdp=sha1($_POST["password"]);
                         $confMdp=sha1($_POST["password2"]);
                         $mail=$_POST["mail"];
-                        $classement=$_POST["classement"];
                         if ($_POST['nom']!="" && $_POST['prenom']!=""&& $_POST["password"]!="" && $_POST["password2"]!="" && $_POST["mail"]!=""){
                             if(preg_match("#^[a-zA-Zéèçàùê-]{2,30}$#", $nom)){
                                 if(preg_match("#^[a-zA-Zéèçàùê-]{2,30}$#", $prenom)){
@@ -41,14 +40,13 @@
                                             }
                                             else{
                                                 echo "Votre compte a été correctement ajouté";
-
-                                     $rq1=$bdd->prepare('INSERT INTO Utilisateurs(Nom, Prenom, Mail, Mdp, classement) VALUES(:nom, :prenom, :mail, :mdp, :classement)');
-                                                                                     $rq1->execute(array(
-                                                                                     'nom' => $nom,
-                                                                                     'prenom' => $prenom,
-                                                                                     'mail' => $mail,
-                                                                                     'mdp' => $mdp,
-                                                                                     'classement' => $classement));           $rq= $bdd->prepare('SELECT * FROM Utilisateurs WHERE Mail= :mail AND Mdp= :mdp');
+                                                $rq1=$bdd->prepare('INSERT INTO Utilisateurs(Nom, Prenom, Mail, Mdp) VALUES(:nom, :prenom, :mail, :mdp)');
+                                                $rq1->execute(array(
+                                                'nom' => $nom,
+                                                'prenom' => $prenom,
+                                                'mail' => $mail,
+                                                'mdp' => $mdp));
+                                                $rq= $bdd->prepare('SELECT * FROM Utilisateurs WHERE Mail= :mail AND Mdp= :mdp');
                                                 $rq->execute(array(
                                                 'mail' => $mail,
                                                 'mdp' => $mdp));
@@ -117,7 +115,7 @@
                             <label><b>Confirmation Mot de passe:</b></label>
                             <input type="password" placeholder="Entrer le mot de passe" name="password2" required>
                             <label><b>Classement:</b></label>
-                            <select id="classement" name="classement">
+                            <select id="classement">
                               <option value="NC">NC</option>
                               <option value="C30.6">C30.6</option>
                               <option value="C30.5">C30.5</option>
