@@ -1,6 +1,6 @@
 <?php
 include "menu.php";
-$mysqli= new mysqli('localhost','root','bdTennisTFE','TFE');
+$mysqli= new mysqli('localhost','root','tfe1234','TFE');
 $nbTerrains=7;
 $terrain=0;
 $_SESSION['ts']="";
